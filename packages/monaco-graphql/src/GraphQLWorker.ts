@@ -98,7 +98,7 @@ export class GraphQLWorker {
     };
   }
 
-  public async doGetVariablesJSONSchema(uri: string): Promise<string | null> {
+  public async doGetVariablesJSONSchema(uri: string): Promise<unknown> {
     const documentModel = this._getTextModel(uri);
     const document = documentModel?.getValue();
     if (!documentModel || !document) {
@@ -111,7 +111,7 @@ export class GraphQLWorker {
     if (jsonSchema) {
       jsonSchema.$id = 'monaco://variables-schema.json';
       jsonSchema.title = 'GraphQL Variables';
-      return JSON.stringify(jsonSchema);
+      return jsonSchema;
     }
 
     return null;

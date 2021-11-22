@@ -36,6 +36,7 @@ export class MonacoGraphQLAPI {
   private _modeConfiguration!: ModeConfiguration;
   private _diagnosticSettings!: DiagnosticSettings;
   private _schemas: SchemaConfig[] | null = null;
+  private _schemasById: Record<string, SchemaConfig> = Object.create(null);
   private _languageId: string;
   private _externalFragmentDefinitions:
     | string
@@ -50,6 +51,7 @@ export class MonacoGraphQLAPI {
     diagnosticSettings,
   }: MonacoGraphQLAPIOptions) {
     this._languageId = languageId;
+
     if (schemas) {
       this.setSchemaConfig(schemas);
     }
@@ -68,8 +70,12 @@ export class MonacoGraphQLAPI {
   public get modeConfiguration(): ModeConfiguration {
     return this._modeConfiguration;
   }
+
   public get schemas(): SchemaConfig[] | null {
     return this._schemas;
+  }
+  public schemasById(): Record<string, SchemaConfig> {
+    return this._schemasById;
   }
 
   public get formattingOptions(): FormattingOptions {
@@ -89,6 +95,10 @@ export class MonacoGraphQLAPI {
    */
   public setSchemaConfig(schemas: SchemaConfig[]): void {
     this._schemas = schemas || null;
+    this._schemasById = schemas.reduce((result, schema) => {
+      result[schema.uri] = schema;
+      return result;
+    }, Object.create(null));
     this._onDidChange.fire(this);
   }
 
@@ -125,13 +135,6 @@ export const modeConfigurationDefault: Required<ModeConfiguration> = {
   foldingRanges: false,
   diagnostics: true,
   selectionRanges: false,
-};
-
-export const schemaDefault: SchemaConfig = {
-  uri: 'monaco://my-schema.graphql',
-  buildSchemaOptions: {
-    assumeValidSDL: true,
-  },
 };
 
 export const formattingDefaults: FormattingOptions = {
