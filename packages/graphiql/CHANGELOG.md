@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.5.3
+
+### Patch Changes
+
+- [`c83d1d4c`](https://github.com/graphql/graphiql/commit/c83d1d4c518ad1b0862aae5f46359dfaee00dda1) Thanks [@kikkupico](https://github.com/kikkupico)! - fix `schema` type nullability for #2028
+
 ## 1.5.2
 
 ### Patch Changes
