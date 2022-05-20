@@ -50,7 +50,7 @@
     "codemirror": "^5.58.2",
     "codemirror-graphql": "^1.2.8",
     "copy-to-clipboard": "^3.2.0",
-    "dset": "^3.1.0",
+    "dset": "^3.1.2",
     "entities": "^2.0.0",
     "escape-html": "^1.0.3",
     "graphql-language-service": "^4.1.1",
