@@ -54,7 +54,7 @@
     "@graphiql/toolkit": "^0.8.1",
     "entities": "^2.0.0",
     "graphql-language-service": "^5.1.1",
-    "markdown-it": "^12.2.0"
+    "markdown-it": "^12.3.2"
   },
   "peerDependencies": {
     "graphql": "^15.5.0 || ^16.0.0",
