@@ -48,7 +48,7 @@
     "codemirror-graphql": "^2.0.3",
     "copy-to-clipboard": "^3.2.0",
     "graphql-language-service": "^5.1.1",
-    "markdown-it": "^12.2.0",
+    "markdown-it": "^12.3.2",
     "set-value": "^4.1.0"
   },
   "devDependencies": {
